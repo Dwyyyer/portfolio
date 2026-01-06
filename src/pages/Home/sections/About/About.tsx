@@ -5,9 +5,11 @@ import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 const About = () => {
   const StyledAbout = styled("section")(({ theme }) => ({
     width: "100%",
-    minHeight: "120dvh",
+    minHeight: "100dvh",
     zIndex: 100,
     backgroundColor: theme.palette.background.default,
+    display: "flex",
+    alignItems: "center",
   }));
 
   const StyledCard = styled(Card)(({ theme }) => ({
@@ -31,7 +33,7 @@ const About = () => {
     <StyledAbout>
       <Container maxWidth="lg" sx={{ position: "relative"}}>
         <Stack spacing={2} alignItems="center">
-          <Typography variant="h3">About Me</Typography>
+          <Typography variant="h4">About Me</Typography>
             <Divider sx={{
               width: "300px",
               height: "2px",
@@ -41,9 +43,11 @@ const About = () => {
             <Grid size={{ xs: 12, md: 3 }}>
               <Stack direction="column" spacing={2} alignItems="center">
                 <StyledCard>
-                  <Typography variant="h5"><b>Education</b></Typography>
+                  <CardContent>
+                   <Typography variant="h5"><b>Education</b></Typography>
+                  </CardContent>
                   <CardMedia>
-                    <SchoolOutlinedIcon sx={{ fontSize: 200, color: "#fff" }}/>
+                    <SchoolOutlinedIcon sx={{ fontSize: 80, color: "#fff" }}/>
                   </CardMedia>
                   <CardContent>
                     <Typography variant="body1">Bachelor’s Degree in Information Systems </Typography>
@@ -51,10 +55,12 @@ const About = () => {
                     <Typography variant="body2">Universidade de Uberaba (UNIUBE), 2024 - 2027</Typography>
                   </CardContent>
                 </StyledCard>
-                <StyledCard> 
-                  <Typography variant="h5"><b>Experience</b></Typography>        
+                <StyledCard>
+                  <CardContent>
+                    <Typography variant="h5"><b>Experience</b></Typography>
+                  </CardContent>         
                   <CardMedia>
-                    <WorkHistoryOutlinedIcon sx={{ fontSize: 200, color: "#fff" }}/>
+                    <WorkHistoryOutlinedIcon sx={{ fontSize: 80, color: "#fff" }}/>
                   </CardMedia>
                   <CardContent>
                     <Typography variant="body1">Systems Development Intern</Typography>
