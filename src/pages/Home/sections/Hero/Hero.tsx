@@ -17,8 +17,8 @@ const StyledHero = styled("section")(({ theme }) => ({
 
   background: `linear-gradient(
     120deg,
-    #c80ec2ff,
-    #3c1875ff,
+    ${theme.palette.primary.main},
+    ${theme.palette.secondary.main},
     ${theme.palette.background.default}
   )`,
   backgroundSize: "400% 400%",
@@ -29,6 +29,11 @@ const StyledHero = styled("section")(({ theme }) => ({
     "50%": { backgroundPosition: "100% 50%" },
     "100%": { backgroundPosition: "0% 50%" },
   },
+}));
+
+const StyledButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.text.primary,
+  borderColor: theme.palette.text.primary,
 }));
 
 const ParticlesWrapper = styled("div")({
@@ -59,12 +64,12 @@ const Hero = () => {
                   2000,]} wrapper="span" cursor={false}></TypeAnimation>
               </Typography>
               <Stack direction={{ xs: "column", md: "row" }} spacing={3}>
-                <Button startIcon={<LinkedInIcon />} variant="outlined">
+                <StyledButton startIcon={<LinkedInIcon />} variant="outlined">
                   <Typography>LinkedIn</Typography>
-                </Button>
-                <Button startIcon={<GitHubIcon />} variant="outlined">
+                </StyledButton>
+                <StyledButton startIcon={<GitHubIcon />} variant="outlined">
                   <Typography>GitHub</Typography>
-                </Button>
+                </StyledButton>
               </Stack>
             </Stack>
           </Container>
