@@ -27,7 +27,11 @@ let theme = createTheme({
 
     typography: {
         fontFamily: "Roboto Mono"
-    }
+    },
+
+    shape: {
+        borderRadius: "3rem",
+    },
 });
 
 theme = responsiveFontSizes(theme);
