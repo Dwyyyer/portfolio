@@ -43,6 +43,7 @@ const ParticlesWrapper = styled("div")({
   height: "100%",
   zIndex: 0,
   pointerEvents: "none",
+  filter: "blur(4px)",
 });
 
 const Hero = () => {
