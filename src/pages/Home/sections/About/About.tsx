@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardMedia, Chip, Container, CssBaseline, Divider, Grid, Paper, Stack, styled, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Chip, Container, CssBaseline, Divider, Grid, Paper, Stack, styled, Typography } from "@mui/material";
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 
