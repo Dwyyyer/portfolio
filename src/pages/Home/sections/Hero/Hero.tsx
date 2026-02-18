@@ -4,7 +4,7 @@ import TriangleParticles from "../../../../components/visual/TriangleParticles"
 import { TypeAnimation } from 'react-type-animation';
 // import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
 // import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import GitHubIcon from '@mui/icons-material/GitHub';
+import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const StyledHero = styled("section")(({ theme }) => ({
@@ -68,8 +68,8 @@ const Hero = () => {
                 <StyledButton startIcon={<LinkedInIcon />} variant="outlined">
                   <Typography>LinkedIn</Typography>
                 </StyledButton>
-                <StyledButton startIcon={<GitHubIcon />} variant="outlined">
-                  <Typography>GitHub</Typography>
+                <StyledButton startIcon={<FileDownloadOutlinedIcon />} variant="outlined">
+                  <Typography>Download CV</Typography>
                 </StyledButton>
               </Stack>
             </Stack>
