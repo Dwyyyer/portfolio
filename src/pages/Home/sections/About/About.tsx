@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Chip, Container, CssBaseline, Divider, Grid, Paper, Stack, styled, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Chip, Container, Divider, Grid, Paper, Stack, styled, Typography } from "@mui/material";
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 
@@ -21,8 +21,8 @@ const About = () => {
     borderRadius: 24,
 
     background: "rgba(255, 255, 255, 0.08)",
-    backdropFilter: "blur(16px)",
-    WebkitBackdropFilter: "blur(16px)",
+    // backdropFilter: "blur(16px)",
+    // WebkitBackdropFilter: "blur(16px)",
 
     textAlign: "center",
     transition: "transform 0.3s ease",
@@ -66,10 +66,16 @@ const About = () => {
     width: "100%",
   }));
 
+  const StyledChip = styled(Chip)(() => ({
+
+    transition: "transform 0.2s ease",
+    "&:hover": {
+      transform: "scale(1.06)",
+    },
+  }));
   return (
     <>
     <StyledAbout>
-      <CssBaseline/>
       <Container maxWidth="lg" sx={{ position: "relative"}}>
         <Stack spacing={2} alignItems="center">
           <Grid container spacing={4}>
@@ -99,11 +105,11 @@ const About = () => {
                     gap={1}
                     justifyContent="center"
                   >
-                    <Chip label="Clickable"></Chip>
-                    <Chip label="Clickable"></Chip>
-                    <Chip label="Clickable"></Chip>
-                    <Chip label="Clickable"></Chip> 
-                    <Chip label="Clickable"></Chip>
+                    <StyledChip label="Clickable"></StyledChip>
+                    <StyledChip label="Clickable"></StyledChip>
+                    <StyledChip label="Clickable"></StyledChip>
+                    <StyledChip label="Clickable"></StyledChip> 
+                    <StyledChip label="Clickable"></StyledChip>
                   </Stack>
                 </StyledPaper>
               </Stack>
