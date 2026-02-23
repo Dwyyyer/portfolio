@@ -34,6 +34,12 @@ const StyledHero = styled("section")(({ theme }) => ({
 const StyledButton = styled(Button)(({ theme }) => ({
   color: theme.palette.text.primary,
   borderColor: theme.palette.text.primary,
+  transition: "all 0.3s ease",
+
+  "&:hover": {
+    borderColor: theme.palette.text.primary,
+    backgroundColor: theme.palette.action.hover,
+  },
 }));
 
 const ParticlesWrapper = styled("div")({

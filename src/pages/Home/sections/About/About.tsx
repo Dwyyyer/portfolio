@@ -66,11 +66,12 @@ const About = () => {
     width: "100%",
   }));
 
-  const StyledChip = styled(Chip)(() => ({
+  const StyledChip = styled(Chip)(({ theme }) => ({
+    transition: "all 0.3s ease",
 
-    transition: "transform 0.2s ease",
     "&:hover": {
-      transform: "scale(1.06)",
+        borderColor: theme.palette.text.primary,
+        backgroundColor: theme.palette.action.hover,
     },
   }));
   return (
