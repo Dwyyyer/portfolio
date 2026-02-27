@@ -1,11 +1,17 @@
 import styled from "@emotion/styled"
-import { Button, Container, Stack, Typography } from "@mui/material"
-import TriangleParticles from "../../../../components/visual/TriangleParticles"
-import { TypeAnimation } from 'react-type-animation';
+import Button from "@mui/material/Button"
+// import { TypeAnimation } from 'react-type-animation';
 // import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
 // import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import FileDownloadOutlinedIcon from '@mui/icons-material/FileDownloadOutlined';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+import Fade from '@mui/material/Fade';
+import { lazy, Suspense, useEffect, useState } from "react"
+
+const TriangleParticles = lazy(() => import("../../../../components/visual/TriangleParticles"))
 
 const StyledHero = styled("section")(({ theme }) => ({
   width: "100%",
@@ -49,27 +55,59 @@ const ParticlesWrapper = styled("div")({
   height: "100%",
   zIndex: 0,
   pointerEvents: "none",
-  filter: "blur(4px)",
+  "@media (min-width:600px)": {
+    filter: "blur(4px)",
+  },
 });
 
 const Hero = () => {
+  const [text, setText] = useState("")
+  const [showParticles, setShowParticles] = useState(false)
+
+  const fullText = "Full Stack Developer"
+
+  useEffect(() => {
+    let i = 0
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, i + 1))
+      i++
+      if (i === fullText.length) clearInterval(interval)
+    }, 60)
+
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowParticles(true)
+    }, 1150)
+
+    return () => clearTimeout(timer)
+  }, [])
+
   return (
     <>
       <StyledHero>
-          <ParticlesWrapper>
-            <TriangleParticles color="#ffffff" quantity={100} />
-          </ParticlesWrapper>
-          <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}> 
-            <Stack spacing={3} alignItems="center">
+        {showParticles && (
+          <Fade in={true} style={{ transitionDelay: "0.5s" }}>
+            <ParticlesWrapper>
+              <Suspense fallback={null}>
+                <TriangleParticles color="#ffffff" quantity={100} />
+              </Suspense>
+            </ParticlesWrapper>
+          </Fade>
+        )}
+        <Container maxWidth="lg" sx={{ position: "relative", zIndex: 2 }}>
+          <Stack spacing={3} alignItems="center">
+            <Fade in={true} timeout={1000}>
               <Typography variant="h1" textAlign="center">
                 Daniel T. Araújo
               </Typography>
-              <Typography variant="h4" textAlign="center">
-              <TypeAnimation
-                sequence={[
-                  'Full Stack Developer',
-                  2000,]} wrapper="span" cursor={false}></TypeAnimation>
-              </Typography>
+            </Fade>
+            <Typography variant="h2" textAlign="center">
+              {text}
+            </Typography>
+            <Fade in={true} timeout={1000} style={{ transitionDelay: "1.5s" }}>
               <Stack direction={{ xs: "column", md: "row" }} spacing={3}>
                 <StyledButton startIcon={<LinkedInIcon />} variant="outlined">
                   <Typography>LinkedIn</Typography>
@@ -78,8 +116,9 @@ const Hero = () => {
                   <Typography>Download CV</Typography>
                 </StyledButton>
               </Stack>
-            </Stack>
-          </Container>
+            </Fade>
+          </Stack>
+        </Container>
       </StyledHero>
     </>
   )
