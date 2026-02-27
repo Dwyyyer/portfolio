@@ -1,6 +1,16 @@
-import { Card, CardContent, CardMedia, Chip, Container, Divider, Grid, Paper, Stack, styled, Typography } from "@mui/material";
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
+import { styled } from '@mui/material/styles';
+import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import Card from '@mui/material/Card';
+import Paper from '@mui/material/Paper';
+import Chip from '@mui/material/Chip';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
 
 const About = () => {
   const StyledAbout = styled("section")(({ theme }) => ({
@@ -28,7 +38,7 @@ const About = () => {
     transition: "transform 0.3s ease",
 
     "&:hover": {
-      transform: "scale(1.04)",
+      transform: "scale(1.01)",
     },
   })); 
 
